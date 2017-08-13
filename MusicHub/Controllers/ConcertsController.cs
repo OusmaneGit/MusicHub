@@ -1,7 +1,9 @@
 ﻿
+using System;
 using System.Linq;
 
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MusicHub.Models;
 using MusicHub.ViewModels;
 
@@ -15,7 +17,7 @@ namespace MusicHub.Controllers
         {
             _context= new ApplicationDbContext();
         }
-        
+        [Authorize]
         public ActionResult Create()
         {
             var viewModel= new ConcertFormViewModel
@@ -24,5 +26,24 @@ namespace MusicHub.Controllers
             };
             return View(viewModel);
         }
+        [Authorize]
+        [HttpPost]
+        public ActionResult Create(ConcertFormViewModel viewModel)
+        {
+            //var artist = _context.Users.Single(u => u.Id == artistId);
+            //var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
+            var concert= new Concert
+            {
+                ArtistId = User.Identity.GetUserId(),
+                DateTime = DateTime.Parse(string.Format("{0} {1}",viewModel.Date,viewModel.Time)),
+                GenreId = viewModel.Genre,
+                Venue = viewModel.Venue
+            };
+            _context.Concerts.Add(concert);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+        
     }
 }
