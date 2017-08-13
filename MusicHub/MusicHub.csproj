@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConcertsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,6 +214,10 @@
     <Compile Include="Migrations\201708130135282_OverrideConvention.Designer.cs">
       <DependentUpon>201708130135282_OverrideConvention.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708130207384_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\201708130207384_PopulateGenresTable.Designer.cs">
+      <DependentUpon>201708130207384_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -222,6 +227,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ConcertFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-MusicHub-20170812073131.mdf" />
@@ -285,6 +291,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Concerts\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -304,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708130135282_OverrideConvention.resx">
       <DependentUpon>201708130135282_OverrideConvention.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708130207384_PopulateGenresTable.resx">
+      <DependentUpon>201708130207384_PopulateGenresTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
