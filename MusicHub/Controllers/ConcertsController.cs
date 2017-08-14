@@ -1,5 +1,4 @@
 ﻿
-using System;
 using System.Linq;
 
 using System.Web.Mvc;
@@ -32,10 +31,16 @@ namespace MusicHub.Controllers
         {
             //var artist = _context.Users.Single(u => u.Id == artistId);
             //var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+
+            }
             var concert= new Concert
             {
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = DateTime.Parse(string.Format("{0} {1}",viewModel.Date,viewModel.Time)),
+                DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };
