@@ -27,6 +27,7 @@ namespace MusicHub.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(ConcertFormViewModel viewModel)
         {
             //var artist = _context.Users.Single(u => u.Id == artistId);
