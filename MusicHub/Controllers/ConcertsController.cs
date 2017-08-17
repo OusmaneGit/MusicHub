@@ -32,7 +32,7 @@ namespace MusicHub.Controllers
         {
             //var artist = _context.Users.Single(u => u.Id == artistId);
             //var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 viewModel.Genres = _context.Genres.ToList();
                 return View("Create", viewModel);
@@ -41,7 +41,7 @@ namespace MusicHub.Controllers
             var concert= new Concert
             {
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = viewModel.GetDateTime(),
+                DateTime = viewModel.DateTime,
                 GenreId = viewModel.Genre,
                 Venue = viewModel.Venue
             };

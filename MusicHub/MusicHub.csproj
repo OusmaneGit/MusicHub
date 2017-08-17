@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201708132029462_AddForeignkeyPropToConcert.Designer.cs">
       <DependentUpon>201708132029462_AddForeignkeyPropToConcert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708161802567_Addname.cs" />
+    <Compile Include="Migrations\201708161802567_Addname.Designer.cs">
+      <DependentUpon>201708161802567_Addname.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -236,9 +240,9 @@
     <Compile Include="ViewModels\ValidTime.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-MusicHub-20170812073131.mdf" />
-    <Content Include="App_Data\aspnet-MusicHub-20170812073131_log.ldf">
-      <DependentUpon>aspnet-MusicHub-20170812073131.mdf</DependentUpon>
+    <Content Include="App_Data\aspnet-GigHub-20151110034939.mdf" />
+    <Content Include="App_Data\aspnet-GigHub-20151110034939_log.ldf">
+      <DependentUpon>aspnet-GigHub-20151110034939.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -323,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708132029462_AddForeignkeyPropToConcert.resx">
       <DependentUpon>201708132029462_AddForeignkeyPropToConcert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708161802567_Addname.resx">
+      <DependentUpon>201708161802567_Addname.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -22,11 +22,11 @@ namespace MusicHub.ViewModels
         [Required]
         public IEnumerable<Genre> Genres { get; set; }
 
-        public DateTime GetDateTime()
+        public DateTime DateTime
         {
             
-                return DateTime.Parse(string.Format("{0}{1}", Date, Time));
-            
+               get { return DateTime.Parse(string.Format("{0} {1}", Date, Time)); }
+
         }
     }
 }
