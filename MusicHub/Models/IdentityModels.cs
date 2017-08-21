@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -13,7 +15,14 @@ namespace MusicHub.Models
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
+        public ICollection<Following> Followers { get; set; }
+        public ICollection<Following> Followees { get; set; }
 
+        public ApplicationUser()
+        {
+           Followers= new Collection<Following>();
+            Followees= new Collection<Following>();
+        }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Notez qu'authenticationType doit correspondre à l'élément défini dans CookieAuthenticationOptions.AuthenticationType
